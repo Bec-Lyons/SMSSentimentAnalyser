@@ -142,7 +142,7 @@ public static Boolean saveResponse(float sentiment, string message, string numbe
             string date = DateTime.Today.ToString();
             string time = DateTime.Now.ToString();
             // Update a log to the database
-            string s = "INSERT INTO Messages (customerPhone, message, date, time, sentiment) VALUES ('+" + number.Trim() +"', '" + message +"', '"+date+"', '"+ time +"', "+ sentiment  +");";
+             string s = "INSERT INTO Messages (customerPhone, message, date, time, sentiment) VALUES ('+" + number.Trim() +"', '" + message +"', '"+date+"', '"+ time +"', "+ sentiment  +");";
             log.Info(s);
             connection.Execute(s);
 
