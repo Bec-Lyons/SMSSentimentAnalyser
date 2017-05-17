@@ -19,12 +19,13 @@ using System.Configuration;
  /// <summary>
  /// Azure portal URL.
  /// </summary>
- private const string BaseUrl = "https://westus.api.cognitive.microsoft.com/";
+	
+ private const string BaseUrl = "https://<LOCATION>.api.cognitive.microsoft.com/";
 
  /// <summary>
 /// Your account key goes here.
  /// </summary>
-private const string AccountKey = "bbf242071f2548328870cb0d2fb59c8c";
+private const string AccountKey = "ACCOUNT_KEY";
 
 /// <summary>
 /// Maximum number of languages to return in language detection API.
@@ -131,23 +132,9 @@ public static Boolean saveResponse(float sentiment, string message, string numbe
     var successful =true;
     try
     {
-        string cnnString  = ConfigurationManager.ConnectionStrings["SqlConnection"].ConnectionString;
-        log.Info(cnnString);
-        
-        using(var connection = new SqlConnection(cnnString))
-        {
-            log.Info("Logged?  "+ cnnString);
-            connection.Open();
-            log.Info("Logged?  "+ connection);
-            string date = DateTime.Today.ToString();
-            string time = DateTime.Now.ToString();
-            // Update a log to the database
-             string s = "INSERT INTO Messages (customerPhone, message, date, time, sentiment) VALUES ('+" + number.Trim() +"', '" + message +"', '"+date+"', '"+ time +"', "+ sentiment  +");";
-            log.Info(s);
-            connection.Execute(s);
-
-            log.Info("successfully logged");
-        }
+	///ADD YOUR SQL CONNECTION STRING 
+	///SAVE RESPONSE 
+      
     }
     catch
     {
